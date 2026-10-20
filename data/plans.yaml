@@ -1,0 +1,84 @@
+# grok-bot-portable — public plan facts only
+# Access date: 2026-10-20 (UTC+8)
+# Rule: no invented prices; cite official pages. Live memory: refuse-write.
+# Note: Ultra / plan chapter stays a monorepo docs section (not a second repo).
+
+schema_version: 1
+accessed: "2026-10-20"
+
+# Official Individual / The X Subscription list prices (public pages).
+# Full https://x.ai/pricing DOES list Ultra $200 / 50x (fetched 2026-10-20).
+# A truncated Individual screenshot showing only Free–Super is incomplete vs full page.
+public_individual_pricing:
+  cite:
+    - url: "https://x.ai/pricing"
+      note: "Individual tiers Free / Plus / Premium / Super / Ultra; Ultra $200/mo, 50x vs Plus"
+    - url: "https://docs.x.ai/x-subscription/pricing"
+      note: "Official X Subscription pricing docs; Ultra $200/mo, 50x"
+    - url: "https://docs.x.ai/x-subscription/grok-bot"
+      note: "Grok Bot on X Subscription; weekly pool / access by tier"
+    - url: "https://cursor.com/pricing"
+      note: "Same X Subscription table; Ultra $200/mo, 50x more usage vs Plus"
+    - url: "https://cursor.com/docs/models-and-pricing"
+      note: "Plan table + annual prices; Ultra $200/mo ($2000/yr), 50x Plus"
+    - url: "https://cursor.com/help/account-and-billing/pricing"
+      note: "Pricing and plans help article"
+  currency: USD
+  taxes: "excluded / not included in list prices"
+  plans:
+    free:
+      price_usd_month: 0
+      usage_vs_plus: limited
+      grok_bot_included: false
+    plus:
+      price_usd_month: 8
+      price_usd_year: 80
+      usage_vs_plus: base
+      grok_bot_included: false
+    premium:
+      price_usd_month: 30
+      price_usd_year: 300
+      usage_vs_plus: "4x"
+      grok_bot_included: true
+    super:
+      price_usd_month: 100
+      price_usd_year: 1000
+      usage_vs_plus: "15x"
+      grok_bot_included: true
+    ultra:
+      price_usd_month: 200
+      price_usd_year: 2000
+      usage_vs_plus: "50x"
+      grok_bot_included: true
+      notes:
+        - "Everything in Super + 50x Plus usage + earliest access (public wording)"
+        - "Recommended for power users with several agents/Automations"
+  unknown:
+    - "Absolute size of Plus Base pool (dollars/tokens/requests) — not published; only multipliers"
+
+# Grok Bot billing UI labels (official UI wording), separate from inventing extra tiers.
+grok_bot_billing_label:
+  cite:
+    - url: "https://cursor.com/help/grok-bot/plans"
+      note: "Grok Bot on Premium / Super / Ultra; shared weekly pool; top-ups from prepaid credit"
+    - url: "https://cursor.com/help/account-and-billing/overages"
+      note: "Additional usage / top-ups when weekly pool exhausted"
+  label: "Ultra"
+  matches_public_tier: ultra
+  price_usd_month: 200
+  price_cite: "public_individual_pricing.plans.ultra (x.ai/pricing + cursor.com/pricing)"
+  billing_ui_observed:
+    # User-confirmed Billing UI wording (no account IDs / emails in this file)
+    current_plan_label: "Ultra"
+    weekly_included_usage: true
+    additional_usage_credits_separate: true
+    observed_note: "Billing shows Current plan Ultra with weekly included usage; additional usage credits are separate"
+  usage:
+    pool: "one shared weekly pool across Cursor models / Grok Bot / Grok apps (public docs)"
+    refresh: weekly
+    third_party_models: "not in included pool; API list price from prepaid credit on Premium+"
+
+verification_2026_10_20:
+  question: "Does Grok Bot billing Ultra equal which public tier?"
+  answer: "The X Subscription Individual Ultra ($200/mo, 50x Plus)."
+  screenshot_gap: "If an Individual pricing UI showed only Free–Super, re-check full https://x.ai/pricing — Ultra $200 is on the full public page (WebFetch 2026-10-20)."

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/grok-bot-portable/schemas/memory-event.schema.json",
+  "title": "MemoryEvent",
+  "description": "ONE simple INF event shape. Public-safe teaching schema — no personal paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "ts", "kind", "summary"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable id for this event (uuid or slug)."
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when the event happened."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["note", "decision", "fact", "todo", "refuse"],
+      "description": "Coarse event type."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "One-line human-readable summary."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "description": "Optional short tags."
+    },
+    "refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Optional file paths or URLs relative to YOUR store root — never hardcode another user's machine."
+    }
+  },
+  "examples": [
+    {
+      "id": "evt-001",
+      "ts": "2026-10-20T03:39:00+08:00",
+      "kind": "fact",
+      "summary": "Ultra plan is $200/mo with 50x usage vs Plus (see data/plans.yaml).",
+      "tags": ["billing", "ultra"],
+      "refs": ["data/plans.yaml"]
+    }
+  ]
+}
