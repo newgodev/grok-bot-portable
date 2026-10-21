@@ -24,4 +24,4 @@ Official pages (re-check; do not invent counts):
 
 ## CUT from this folder
 
-Personal identity · school HW · wake_budget · live Claude paths · full marketplace Bot dumps · SELF-MAP HQ ops
+Personal identity · school HW · HQ wake / ops boards · live Claude paths · full marketplace Bot dumps · SELF-MAP HQ ops

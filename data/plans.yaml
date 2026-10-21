@@ -1,7 +1,7 @@
 # grok-bot-portable — public plan facts only
 # Access date: 2026-10-20 (UTC+8)
 # Rule: no invented prices; cite official pages. Live memory: refuse-write.
-# Note: Ultra / plan chapter stays a monorepo docs section (not a second repo).
+# Note: Ultra / plan chapter stays a monorepo docs section (not a second product).
 
 schema_version: 1
 accessed: "2026-10-20"
@@ -56,7 +56,7 @@ public_individual_pricing:
   unknown:
     - "Absolute size of Plus Base pool (dollars/tokens/requests) — not published; only multipliers"
 
-# Grok Bot billing UI labels (official UI wording), separate from inventing extra tiers.
+# Grok Bot billing UI labels (product wording), separate from inventing extra tiers.
 grok_bot_billing_label:
   cite:
     - url: "https://cursor.com/help/grok-bot/plans"

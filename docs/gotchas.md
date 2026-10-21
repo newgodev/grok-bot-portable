@@ -15,7 +15,7 @@ Short rules you can paste into a Bot **Description**. Keep ALWAYS-ON thin.
 - Don’t write into anyone else’s live Claude `~/.claude/memory-core` (or equivalent live store).
 - Don’t ship personal emails, allowlists, school homework, or private machine paths in public material.
 - Don’t publish wake-budget / HQ rate-limit playbooks as public “how to” docs.
-- Don’t bolt desktop healers (sshd / Deskflow / ClipCursor) into this monorepo — those stay a **separate linked** repo when published.
+- Don’t bolt desktop recovery utilities (sshd / Deskflow / ClipCursor) into this monorepo — those stay a **separate linked** repo when published.
 
 ## Ultra (facts only)
 

@@ -33,7 +33,7 @@ PYTHONPATH=src python -m grokbot_portable demo
 
 Point your own bot at a folder you control (placeholder: `<your-ssot-root>/`). Never write into someone else’s live memory store.
 
-Memory v2 (when you use it) is **one** system: topest rules, batch rules, self-map / rate / wake rules, recovery — not seven separate products.
+Memory v2 (when you use it) is **one** system: topest rules, batch rules, self-map / rate / wake rules, recovery — not seven separate pieces.
 
 ---
 
@@ -72,25 +72,27 @@ Human chapter: `docs/ultra-plan.md`. Machine-readable: `data/plans.yaml`.
 grok-bot-portable/
   README.md
   pyproject.toml
-  src/grokbot_portable/     # Code
-  schemas/                  # System (ONE INF schema)
-  cards/                    # Prompt / skill
-  data/plans.yaml           # Ultra facts
+  src/grokbot_portable/          # Code
+  schemas/                       # MUST 1 INF schema
+  cards/                         # Prompt / skill cards
+  skills/bot-memory/             # MUST 6 scrubbed skill
+  mcp/bot-memory/                # MUST 7 tools contract
+  data/plans.yaml                # Ultra facts (official cites)
+  docs/INF-PORTABLE.md           # MUST 1
+  docs/TEMPORAL-FRONTMATTER.md   # MUST 15
+  docs/USEFUL-GATE-STORY.md      # MUST 11
+  docs/liquid-fast-deep-pack.md  # MUST 17 (+ alias 17-liquid-fast-deep.md)
   docs/ultra-plan.md
-  examples/ssot-sample/
-  examples/walls/           # optional ONE EXAMPLE wall
+  docs/gotchas.md
+  examples/ssot-sample/          # MUST 4 SAMPLE events
+  examples/topest/               # MUST 2 ALWAYS-ON + MUST 13 live-refuse
+  examples/walls/                # optional ONE EXAMPLE wall
   stubs/deliverable-stub.html
-  docs/gotchas.md           # Desc / Bot Description gotchas
-  cards/desc-gotchas.md
 ```
 
 ## Cut on purpose
 
-Extra branding wrappers · multi-repo inventories · personal identity · school work · live Claude memory writes · public wake-budget playbooks · “how to post / open many GitHub repos” guides.
-
-## Optional related
-
-Windows desktop helpers (sshd orphan / Deskflow / ClipCursor) live in a **separate** repo — not part of this monorepo: `https://github.com/<OWNER>/desktop-healers`
+Extra branding wrappers · multi-repo inventories · personal identity · school work · live Claude memory writes · public wake/ops playbooks · “how to post / open many GitHub repos” guides.
 
 ## License
 

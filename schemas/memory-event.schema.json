@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.local/grok-bot-portable/schemas/memory-event.schema.json",
   "title": "MemoryEvent",
-  "description": "ONE simple INF event shape. Public-safe teaching schema — no personal paths.",
+  "description": "ONE simple INF event shape. Public-safe teaching schema — no personal paths. Layer 15 adds optional temporal / supersede fields.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "ts", "kind", "summary"],
@@ -38,6 +38,26 @@
       "type": "array",
       "items": { "type": "string", "minLength": 1 },
       "description": "Optional file paths or URLs relative to YOUR store root — never hardcode another user's machine."
+    },
+    "valid_from": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Layer 15: when this record became current."
+    },
+    "valid_to": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Layer 15: when it stopped being current; null = still live."
+    },
+    "supersedes": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Layer 15: id or relative path this record replaces. No silent delete."
+    },
+    "superseded_by": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Layer 15: id or path of the newer record (set on the old row)."
     }
   },
   "examples": [
@@ -48,6 +68,16 @@
       "summary": "Ultra plan is $200/mo with 50x usage vs Plus (see data/plans.yaml).",
       "tags": ["billing", "ultra"],
       "refs": ["data/plans.yaml"]
+    },
+    {
+      "id": "evt-demo-decision-001",
+      "ts": "2026-10-20T12:00:00+08:00",
+      "kind": "decision",
+      "summary": "EXAMPLE — flat events/YYYY-MM-DD-slug.md",
+      "tags": ["demo", "events"],
+      "valid_from": "2026-10-20T12:00:00+08:00",
+      "valid_to": null,
+      "supersedes": "evt-demo-001"
     }
   ]
 }
